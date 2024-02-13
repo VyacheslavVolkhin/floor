@@ -10,7 +10,7 @@
 	font-size: 26px;
 	line-height: 1.23;
 	color: var(--clr-light);
-	transition: all ease 0.2s;
+	transition: all ease 0.7s;
 	font-weight: bold;
 	position: relative;
 	padding: 15px;
@@ -32,7 +32,7 @@
 	.tile-ico {
 		display: block;
 		margin: 0 auto;
-		transition: all ease 0.2s;
+		transition: all ease 0.7s;
 	}
 }
 .item-tile-catalog {
@@ -75,7 +75,7 @@
 		display: none;
 		animation: fadein ease 0.2s;
 		.btn {
-			z-index: 10;
+			z-index: 11;
 			height: 46px;
 			padding: 0 8px 0 9px;
 			font-size: 16px;
@@ -742,14 +742,22 @@
 }
 @media (min-width: 1024px) {
 	.item-tile-catalog {
+		transition-delay: 0s;
+		&.tile-slider {
+			&:hover {
+				border-bottom-color: #fff;
+			}
+		}
 		&:hover {
 			filter: drop-shadow(0 13px 51px rgba(0, 0, 0, 0.25));
 			border-bottom-right-radius: 0;
 			border-bottom-left-radius: 0;
+			transition-delay: 0.02s;
 			box-shadow: none;
 			z-index: 3;
 			.tile-features-wrap, .tile-colors-wrap {
 				display: block;
+				animation-delay: 1s;
 			}
 			.tile-button-action {
 				display: block;
@@ -771,9 +779,16 @@
 			left: 0;right: 0;
 			background: #fff;
 			z-index: 10;
-			animation: fadein ease 0.2s;
+			animation: fadein ease 0.1s;
 			padding: 0 15px 15px 15px;
 			margin: 0;
+		}
+		.tile-colors-wrap {
+			border: 1px solid var(--clr-att);
+			border-top: none;
+			left: -1px;right: -1px;
+			border-bottom-left-radius: var(--main-radius);
+			border-bottom-right-radius: var(--main-radius);
 		}
 		.tile-feature-row {
 			font-size: 16px;

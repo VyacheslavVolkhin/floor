@@ -32,3 +32,28 @@
 		}
 	}
 }
+@media (min-width: 1024px) {
+	.items-slider-box {
+		.slider:has(.ico-arrow:hover) {
+			.slick-active {
+				.item-tile-catalog {
+					&.tile-slider {
+						filter: drop-shadow(0 13px 51px rgba(0, 0, 0, 0.25));
+						border-bottom-right-radius: 0;
+						border-bottom-left-radius: 0;
+						transition-delay: 0.02s;
+						box-shadow: none;
+						z-index: 3;
+						.tile-features-wrap, .tile-colors-wrap {
+							display: block;
+							animation-delay: 1s;
+						}
+						.tile-button-action {
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+}
