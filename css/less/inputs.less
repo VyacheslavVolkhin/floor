@@ -154,6 +154,19 @@ select.form-input:required:invalid {
 			background-color: var(--clr-att);
 		}
 	}
+	&.button-gray-light {
+		background: var(--clr-base-100);
+		border-color: var(--clr-base-100);
+		box-shadow: none;
+		&:hover, &.active {
+			background: var(--clr-base);
+			border-color: var(--clr-base);
+		}
+		&:active {
+			background-color: var(--clr-att);
+			border-color: var(--clr-att);
+		}
+	}
 	&.button-small {
 		height: 40px;
 		font-size: 14px;
@@ -387,7 +400,6 @@ select.form-input:required:invalid {
         min-width: 0;
         min-height: 0;
         padding: 0;
-        display: block;
     }
     &:before, &:after, [class*="icon-"], img, svg {
         display: block;
@@ -415,6 +427,26 @@ select.form-input:required:invalid {
             box-shadow: none;
         }
     }
+	&.ico-menu {
+		&:before {
+			background-image: url(../img/icons/menu.svg);
+		}
+		&.active {
+			&:before {
+				background-image: url(../img/icons/close.svg);
+			}
+		}
+	}
+	&.ico-search {
+		&:before {
+			background-image: url(../img/icons/search.svg);
+		}
+		&.active {
+			&:before {
+				background-image: url(../img/icons/close.svg);
+			}
+		}
+	}
 	&.ico-arrow {
 		&:before {
 			background-image: url(../img/icons/arrow-next.svg);
@@ -425,6 +457,13 @@ select.form-input:required:invalid {
 		}
 		&.button-ico-large {
 			width: 56px;height: 56px;
+		}
+		&.button-gray-light {
+			&:not(:hover, :active) {
+				&:before {
+					filter: brightness(0) grayscale(1) opacity(0.3);
+				}
+			}
 		}
 	}
 	&.ico-arrow-prev {
@@ -615,6 +654,25 @@ select.form-input:required:invalid {
 		&:before {
 			content: attr(data-show);
 		}
+	}
+}
+.btn-action-back {
+	display: inline-block;
+	vertical-align: middle;
+	line-height: 24px;
+	padding: 0 0 0 24px;
+	color: var(--clr-base);
+	&:before {
+		content: "";
+		display: block;
+		width: 24px;
+		height: 24px;
+		position: absolute;
+		background: url(../img/icons/arrow-main.svg) center no-repeat;
+		background-size: 16px auto;
+		top: 50%;left: 6px;
+		margin: -13px 0 0 -12px;
+		transform: rotate(180deg);
 	}
 }
 .btn-action-icon {
