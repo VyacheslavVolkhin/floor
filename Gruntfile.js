@@ -1,4 +1,5 @@
 module.exports = function (grunt) {
+	
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         fixturesPath: "_includes",
@@ -86,6 +87,15 @@ module.exports = function (grunt) {
             }
         },
 
+		
+		rework_inline: {
+			default_options: {
+			  options: {
+				dirs: ['img/icons']
+			  },
+			  src: ['img/icons/inline.css']
+			}
+		  },
 
         postcss: {
             min: {
@@ -149,6 +159,17 @@ module.exports = function (grunt) {
             }
         },*/
 
+		imageEmbed: {
+			dist: {
+			  src: [ "css/style.css" ],
+			  dest: "css/output.css",
+			  options: {
+				deleteAfterEncoding : false,
+				preEncodeCallback: function (filename) { return true; }
+			  }
+			}
+		  },
+
 
 
         watch: {
@@ -178,10 +199,12 @@ module.exports = function (grunt) {
         }
     });
 
+	grunt.loadNpmTasks('grunt-rework-inline');
+
     /*grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-uglify');*/
     require('load-grunt-tasks')(grunt);
     require('postcss-plugin')({});
 
-    grunt.registerTask('default', ['watch'], ['less'], ['sprite'],  ['htmlbuild'], ['postcss'], ['imagemin'] );
+    grunt.registerTask('default', ['watch'], ['less'], ['sprite'],  ['htmlbuild'], ['postcss'], ['imagemin'], ["imageEmbed"], ["rework_inline"] );
 };

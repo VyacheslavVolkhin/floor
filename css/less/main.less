@@ -89,6 +89,18 @@ p, ul, ol, table, blockquote, .bq-text {
 }
 li {
 	position: relative;
+	padding-left: 24px;
+	&:before {
+		content: "";
+		display: block;
+		width: 3px;height: 3px;
+		background: currentColor;
+		position: absolute;
+		top: 0.75em;
+		left: 10px;
+		margin-top: -2px;
+		border-radius: 50%;
+	}
 }
 .menu, .list {
     margin: 0;
@@ -118,6 +130,7 @@ a.link-main, .link-main {
 .link-phone {
     white-space: nowrap;
 }
+.page-subtitle,
 h1, .h1-title,
 h2, .h2-title,
 h3, .h3-title,
@@ -131,6 +144,27 @@ h6, .h6-title {
     &:first-child {
         margin-top: 0;
     }
+}
+.page-subtitle {
+	font-size: 18px;
+	line-height: (26/18);
+}
+.h1-title, h1 {
+	font-size: 26px;
+	line-height: (32/26);
+	font-weight: bold;
+}
+.h2-title, h2 {
+	font-size: 21px;
+	line-height: (28/21);
+	margin-bottom: 32px;
+	margin-top: 0;
+}
+.h3-title, h3 {
+	font-size: 1em;
+	line-height: inherit;
+	margin-bottom: 1.5em;
+	margin-top: 0;
 }
 .text-att, .title-att {
     color: var(--clr-att);
@@ -165,6 +199,20 @@ h6, .h6-title {
     :root {
         --paddingContainer: 30px;
     }
+	.h1-title, h1 {
+		&.title-large {
+			font-size: 4.2rem;
+			line-height: (48/42);
+		}
+	}
+	.h2-title, h2 {
+		font-size: 3.6rem;
+		line-height: (42/36);
+		&.title-small {
+			font-size: 26px;
+			line-height: (32/26);
+		}
+	}
 }
 @media (min-width: 1400px) {
     :root {

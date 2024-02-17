@@ -3,6 +3,9 @@
 \* ----------------------------------- */
 .frm-field-select {
 	position: relative;
+	.field-hidden-wrap {
+		display: none;
+	}
 	&.show-all {
 		.select-list-wrap {
 			.frm-select {
@@ -241,6 +244,7 @@
 			height: 24px;
 			position: absolute;
 			background: url(../img/icons/search.svg) center no-repeat;
+			background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z' stroke='%2312181F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M22 22L20 20' stroke='%2312181F' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
 			background-size: 100% auto;
 			top: 50%;left: 28px;
 			margin: -12px 0 0 -12px;
@@ -387,12 +391,14 @@
 		&:after {
 			border: none;
 			background: url(../img/icons/check.svg) center no-repeat;
+			background-image: url("data:image/svg+xml,%3Csvg width='16' height='16' viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M2.58069 7.99998L6.45166 11.8709L13.6775 4.64514' stroke='white' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E%0A");
 			background-size: 16px auto;
 			border-radius: 0;
 			opacity: 0;
 		}
 	}
 }
+
 .frm-select-toggle {
 	input {
 		&:checked {
