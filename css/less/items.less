@@ -1,6 +1,35 @@
 /* ----------------------------------- *\
 			items styles
 \* ----------------------------------- */
+.item-tile-cart {
+	display: flex;
+	font-size: 14px;
+	line-height: 20px;
+	color: var(--clr-light);
+	.tile-photo-wrap {
+		width: 42px;
+		flex-shrink: 0;
+	}
+	.tile-title-wrap {
+		display: block;
+		flex: 1;
+		padding-left: 16px;
+	}
+	.tile-title {
+		display: block;
+		font-size: 16px;
+		line-height: 22px;
+		font-weight: bold;
+		color: var(--clr-base);
+	}
+	.tile-photo {
+		aspect-ratio: 1;
+		border-radius: var(--main-radius);
+	}
+	&:hover {
+		color: var(--clr-light);
+	}
+}
 .item-tile-menu {
 	display: block;
 	position: relative;
