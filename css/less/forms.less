@@ -1,7 +1,76 @@
 /* ----------------------------------- *\
 			forms elements styles
 \* ----------------------------------- */
-.frm-field-select {
+.frm-field-range {
+	display: block;
+	position: relative;
+	padding-bottom: 8px;
+	.field-range-slider {
+		padding: 0 12px;
+		position: relative;
+	}
+	.field-range-wrap {
+		display: flex;
+		margin: 0 -6px 24px -6px;
+	}
+	.field-range {
+		width: 50%;
+		padding: 0 6px;
+		flex-shrink: 0;
+		position: relative;
+	}
+	.field-range-title {
+		padding: 0 6px;
+		height: 60px;
+		line-height: 60px;
+		position: absolute;
+		top: 0;right: 0;
+		width: 53px;
+		z-index: 2;
+		pointer-events: none;
+		font-size: 16px;
+		color: var(--clr-base-300);
+	}
+	.form-input {
+		height: 60px;
+		padding-left: 20px;
+		font-size: 16px;
+		font-weight: bold;
+		color: var(--clr-base);
+		border: 1px solid var(--clr-base-100);
+	}
+	[placeholder]::-webkit-input-placeholder {color: var(--clr-base);}
+	[placeholder]:-moz-placeholder {color: var(--clr-base);}
+	[placeholder]::-moz-placeholder {color: var(--clr-base);}
+	[placeholder]:-ms-input-placeholder {color: var(--clr-base);}
+	.ui-slider {
+		height: 6px;
+		background: none;
+		&:before {
+			content: "";
+			display: block;
+			position: absolute;
+			top: 0;left: -12px;right: -12px;
+			height: 6px;
+			border-radius: 3px;
+			background: var(--clr-base-300);
+		}
+		.ui-slider-handle {
+			width: 24px;height: 24px;
+			top: 3px;
+			margin: -12px 0 0 -12px;
+			border-radius: 50%;
+			background: #fff;
+			border: 12px solid var(--clr-att);
+			cursor: pointer;
+			outline: none;
+		}
+		.ui-slider-range {
+			background: var(--clr-att);
+		}
+	}
+}
+.frm-field-select, .frm-field-filter {
 	position: relative;
 	.field-hidden-wrap {
 		display: none;
@@ -92,6 +161,61 @@
 			&:before {
 				left: 20px;
 			}
+		}
+	}
+}
+.frm-field-filter {
+	border-bottom: 1px solid var(--clr-base-100);
+	padding: 4px 0;
+	&.section-active {
+		.filter-section-content {
+			display: block;
+		}
+	}
+	.filter-section-content {
+		display: none;
+		padding: 0 16px 16px 16px;
+	}
+	.frm-field-search {
+		padding: 0;
+	}
+	.select-list-wrap {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.select-list-action {
+		padding-top: 0;
+	}
+	.selected-wrap {
+		padding-left: 0;
+		padding-right: 0;
+	}
+	.filter-row {
+		margin-bottom: 16px;
+	}
+	.btn-filter-section-toggle, .btn-filter-section {
+		border: none;
+		border-radius: 0;
+		padding: 16px 40px 16px 16px;
+		height: auto;
+		font-size: 16px;
+		line-height: 24px;
+		&.active {
+			&:before {
+				transform: rotate(-90deg);
+			}
+		}
+	}
+	.btn-filter-section {
+		padding-right: 16px;
+		cursor: default;
+		&:before {
+			opacity: 0;
+		}
+	}
+	.button-tag {
+		&:not(.active) {
+			display: none;
 		}
 	}
 }
@@ -307,6 +431,30 @@
 .frm-select {
 	font-size: 14px;
 	line-height: 18px;
+	&.select-radio {
+		label {
+			&:before {
+				border-radius: 50%;
+				border-color: #c60204;
+				background-color: #c60204;
+			}
+			&:after {
+				width: 6px;height: 6px;
+				border-radius: 50%;
+				background: #c60204;
+				margin: -3px 0 0 -3px;
+			}
+		}
+		input {
+			&:checked {
+				&~label {
+					&:before {
+						background-color: transparent;
+					}
+				}
+			}
+		}
+	}
 	input {
 		&[type="radio"] {
 			&~label {
@@ -339,6 +487,9 @@
 				&:before {
 					background-color: var(--clr-att);
 					border-color: var(--clr-att);
+				}
+				.lbl-color {
+					display: none;
 				}
 			}
 		}
@@ -397,6 +548,13 @@
 			opacity: 0;
 		}
 	}
+	.lbl-color {
+		display: block;
+		width: 18px;height: 18px;
+		border-radius: 50%;
+		position: absolute;top: 9px;left: 9px;
+		margin: -9px 0 0 -9px;
+	}
 }
 
 .frm-select-toggle {
@@ -430,6 +588,31 @@
 						opacity: 0.5;
 					}
 				}
+			}
+		}
+	}
+	&.select-right {
+		input {
+			&:checked {
+				&~label {
+					&:after {
+						right: 12px;
+					}
+				}
+			}
+		}
+		label {
+			padding-left: 0;
+			padding-right: 46px;
+			&:before {
+				left: auto;
+				right: 18px;
+				margin: -12px -18px 0 0;
+			}
+			&:after {
+				left: auto;
+				right: 24px;
+				margin: -9px -9px 0 0;
 			}
 		}
 	}

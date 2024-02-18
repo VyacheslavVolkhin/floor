@@ -13,9 +13,12 @@
     <link rel="stylesheet" href="./css/slick.css" />
     <link rel="stylesheet" href="./css/nice-select2.css" />
     <link rel="stylesheet" href="./css/jquery.fancybox.min.css" />
+    <link rel="stylesheet" href="./css/jquery-ui.min.css" />
     <link rel="stylesheet" href="./css/style.min.css" />
     <script src="./js/jquery.min.js" defer></script>
     <script src="./js/jquery.fancybox.min.js" defer></script>
+    <script src="./js/jquery-ui.min.js" defer></script>
+    <script src="./js/jquery.ui.touch-punch.min.js" defer></script>
     <script src="./js/slick.min.js" defer></script>
     <script src="./js/jquery.maskedinput.min.js" defer></script>
     <script src="./js/nice-select2.js" defer></script>
@@ -6164,7 +6167,7 @@
                                 <p>г. Москва, Шоссе Энтузиастов, д. 56, стр. 32</p>
                                 <p>Пн – Пт: с 9:00 до 18:00</p>
                                 <p><b class="text-small text-att">Бесплатная парковка</b></p>
-                                <p class="elm-hidden-desktop"><a href="" class="link-main text-small">Как к нам доехать</a></p>
+                                <p class="elm-hidden-desktop"><a href="" class="link-main text-small js-popup-open" data-popup="popup-map-info">Как к нам доехать</a></p>
                             </div>
                             <div class="phone-wrap">
                                 <div class="phone-number">
@@ -6306,6 +6309,45 @@
             </div>
         </footer>
         <!-- /footer -->
+
+
+        <!--popup-outer-box-->
+        <div class="popup-outer-box" id="popup-map-info">
+            <div class="popup-box">
+                <a href="" class="btn-action-ico ico-close js-popup-close"></a>
+                <div class="popup-title-wrap">
+                    <div class="popup-title">Как к нам доехать</div>
+                </div>
+                <div class="popup-content-wrap">
+                    <div class="popup-info-box">
+                        <div class="map-inner-wrap">
+                            <script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=-eov8YMYfEHTrqs_Q1kKzkBJYs6HKSuT&width=100%25&height=100%25&lang=ru_RU&sourceType=constructor"></script>
+                        </div>
+                        <div class="action-inner-wrap">
+                            <a href="" class="btn">Открыть в навигаторе</a>
+                        </div>
+                        <div class="info-inner-wrap">
+                            <h2 class="h2-title">На автомобиле</h2>
+                            <h3 class="h3-title">Из центра:</h3>
+                            <p>Следуйте по Шоссе Энтузиастов до съезда на ул. Электродная, не сворачивая на нее езжайте прямо по дублеру Ш. Энтузиастов. Через 800 м. по правую руку здание с зеленой вывеской «Банк Далена»</p>
+                            <h3 class="h3-title">В центр:</h3>
+                            <p>Следуйте по Шоссе Энтузиастов до станции метро Ш. Энтузиастов, через 200 метров на светофоре поверните налево в сторону ул. Электродная, не сворачивая на нее езжайте прямо по дублеру Ш. Энтузиастов. Через 800 м. по правую руку здание с зеленой вывеской «Банк Далена»</p>
+                            <h2 class="h2-title">На общественном транспорте</h2>
+                            <p>м. Шоссе Энтузиастов, 3-й вагон из центра, из стеклянных дверей направо, при выходе в город повернуть налево. Вдоль Шоссе Энтузиастов. 8-10 минут (800 м) двигайтесь прямо, по ходу машин от центра. Вход в офис через проходную у банка. Ориентир - зеленая вывеска «Банк Далена» на здании.</p>
+                            <p><b>На 1-ом этаже звоните по тел. (495) 255-07-07 или на мобильный пригласившего Вас сотрудника, Вас обязательно встретят.</b></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup-footer-wrap">
+                    <a href="" class="btn button-gray-light js-btn-popup-close">
+                        <div class="button-ico">
+                            <img src="./img/icons/close.svg" alt="">
+                        </div>
+                        <div class="button-title">Закрыть</div>
+                    </a>
+                </div>
+            </div>
+        </div><!--/popup-outer-box-->
 
     </div>
     <!-- /wrap -->
