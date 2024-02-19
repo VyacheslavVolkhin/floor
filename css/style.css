@@ -312,6 +312,7 @@ body {
   width: 100%;
 }
 .wrap {
+  overflow: hidden;
   min-height: 100vh;
   display: -ms-flexbox;
   display: flex;
