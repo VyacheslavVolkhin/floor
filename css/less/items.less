@@ -380,6 +380,9 @@
 		padding: 8px;
 		box-shadow: 0 10px 25px 0 rgba(112, 16, 17, 0.22);
 		z-index: 5;
+		.tile-sep-wrap {
+			display: none;
+		}
 		.tile-sticker {
 			display: none;
 		}
@@ -516,9 +519,15 @@
 			}
 		}
 	}
+	.tile-sep-wrap {
+		display: block;
+		width: 100%;
+		flex: 1;
+	}
 	.tile-title-wrap {
 		display: block;
-		flex: 1;
+		//flex: 1;
+		flex-shrink: 0;
 		padding: 8px 0;
 		position: relative;
 		padding-right: 30px;
@@ -1247,6 +1256,7 @@
 		transition-delay: 0s;
 		transition: none;
 		z-index: inherit;
+		height: auto !important;
 		&.tile-slider-buttons {
 			.tile-slider-wrap, .tile-photo-wrap, .tile-slider {
 				position: static;
