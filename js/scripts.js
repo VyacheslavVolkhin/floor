@@ -14,7 +14,6 @@ function tabsActiveStart() {
 				let tabsNavElementActive = tabsNavElements[iElements].dataset.tab
 				for (j = 0; j < tabsBlocks.length; j++) {
 					if (tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive) > -1) {
-						console.log(tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive))
 						tabsBlocks[j].classList.add('active')
 					}
 				}
@@ -298,7 +297,6 @@ $(document).ready(function(){
 	//filter fixed
 	if (!!$('.list-fixed-box').offset()) {
 		let filterTop = $('.list-fixed-box').offset().top;
-		console.log(filterTop)
 		$(window).scroll(function(){
 			let filterTopFixed = $('.header-main-panel').outerHeight();
 			let filterWindowTop = $(window).scrollTop();
@@ -376,22 +374,36 @@ $(document).ready(function(){
 		
 	}
 	//item-tile-catalog
+	$(window).on('resize', function() {
+		$('.item-tile-catalog:not(.tile-not-hover)').each(function() {
+			$(this).css('height', $(this).outerHeight())
+		})
+	});
+	$('.item-tile-catalog:not(.tile-not-hover)').each(function() {
+		$(this).css('height', $(this).outerHeight())
+	})
 	$('.item-tile-catalog .tile-button-info .btn').on('click', function() {
 		if ($(window).innerWidth() < 1024) {
+			let catHeight = $(this).parents('.item-tile-catalog').outerHeight();
+			let catTopHeight = $(this).parents('.item-tile-catalog').find('.tile-title-wrap').outerHeight();
+			let catBottomHeight = $(this).parents('.item-tile-catalog').find('.tile-actions-wrap').outerHeight();
+			let catFeaturesHeigth = catHeight - catTopHeight - catBottomHeight - 10;
+			console.log(catHeight)
+			console.log(catBottomHeight)
 			if ($(this).hasClass('active')) {
 				$(this).parents('.item-tile-catalog').removeClass('active');
 				$(this).removeClass('active');
 				$(this).parents('.item-tile-catalog').find('.tile-delivery-info-wrap').slideDown(200);
 				$(this).parents('.item-tile-catalog').find('.tile-photo-wrap').slideDown(200);
-				$(this).parents('.item-tile-catalog').find('.tile-features-wrap').slideUp(200);
-				$(this).parents('.item-tile-catalog').find('.tile-colors-wrap').slideUp(200);
+				$(this).parents('.item-tile-catalog').find('.tile-features-wrap').css('max-height', 'inherit').slideUp(200);
+				$(this).parents('.item-tile-catalog').find('.tile-colors-wrap').css('max-height', 'inherit').slideUp(200);
 			} else {
 				$(this).parents('.item-tile-catalog').addClass('active');
 				$(this).addClass('active');
 				$(this).parents('.item-tile-catalog').find('.tile-delivery-info-wrap').slideUp(200);
 				$(this).parents('.item-tile-catalog').find('.tile-photo-wrap').slideUp(200);
-				$(this).parents('.item-tile-catalog').find('.tile-features-wrap').slideDown(200);
-				$(this).parents('.item-tile-catalog').find('.tile-colors-wrap').slideDown(200);
+				$(this).parents('.item-tile-catalog').find('.tile-features-wrap').css('max-height', catFeaturesHeigth).slideDown(200);
+				$(this).parents('.item-tile-catalog').find('.tile-colors-wrap').css('max-height', catFeaturesHeigth).slideDown(200);
 			}
 		}
 		return false;

@@ -561,6 +561,25 @@
 .catalog-slider-box {
 	margin-bottom: 48px;
 	position: relative;
+	.slider-tab-wrap.js-tab-block {
+		&:not(.active) {
+			display: block !important;
+			position: absolute;
+			top: 0;left: 0;right: 0;
+			width: 100%;
+			height: 10px;
+			padding: 0;
+			margin: 0;
+			opacity: 0;
+			overflow: hidden;
+			pointer-events: none;
+			z-index: -999;
+			visibility: hidden;
+		}
+	}
+	.slick-track {
+		margin: 0;
+	}
 	.slider:not(.slick-slider) {
 		display: flex;
 		flex-wrap: nowrap;
@@ -593,41 +612,50 @@
 	.slider-wrap {
 		margin: 0 -4px;
 		padding-bottom: 24px;
+		&>.slider>.slick-list, .slider-tab-wrap>.slider>.slick-list {
+			overflow: visible;
+			&>.slick-track {
+				display: flex;
+				&:before, &:after {
+					display: none;
+				}
+				&>.slick-slide {
+					min-height: 100%;
+					float: none;
+					height: auto;
+					&>div {
+						min-height: 100%;
+						display: flex;
+					}
+				}
+				.sl-wrap {
+					width: 100%;
+					min-height: 100%;
+					&:not(.js-tab-block) {
+						display: block !important;
+					}
+					&.js-tab-block {
+						display: none;
+						&.active {
+							display: block !important;
+						}
+					}
+				}
+				&>.slick-slide {
+					transition: all ease 0.2s;
+					&:not(.slick-active) {
+						opacity: 0;
+						pointer-events: none;
+					}
+				}
+			}
+		}
 		&>.slider {
 
 			&>.slick-dots {
 				bottom: -24px;
 			}
-			&>.slick-list {
-				overflow: visible;
-				&>.slick-track {
-					display: flex;
-					&:before, &:after {
-						display: none;
-					}
-					&>.slick-slide {
-						min-height: 100%;
-						float: none;
-						height: auto;
-						&>div {
-							min-height: 100%;
-							display: flex;
-						}
-					}
-					.sl-wrap {
-						display: block !important;
-						width: 100%;
-						min-height: 100%;
-					}
-					&>.slick-slide {
-						transition: all ease 0.2s;
-						&:not(.slick-active) {
-							opacity: 0;
-							pointer-events: none;
-						}
-					}
-				}
-			}
+			
 		}
 	}
 	.sl-wrap {

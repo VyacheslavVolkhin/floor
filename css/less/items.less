@@ -464,6 +464,7 @@
 	}
 	.tile-actions-wrap {
 		display: block;
+		padding-top: 5px;
 	}
 	.tile-buttons-wrap {
 		display: flex;
@@ -603,7 +604,7 @@
 		&:not(.price-old) {
 			font-size: 20px;
 			font-weight: bold;
-			line-height: 0.8;
+			line-height: 1;
 			display: block;
 			flex-shrink: 0;
 			margin-right: 10px;
@@ -1017,6 +1018,26 @@
 			font-size: 21px;;
 			line-height: 24px;
 			margin-bottom: 16px;
+		}
+	}
+	.item-tile-catalog {
+		&:not(.active) {
+
+		}
+		&.active {
+			.tile-features-wrap {
+				//display: block;
+			}
+		}
+		.tile-features-wrap, .tile-colors-wrap {
+			overflow-y: auto;
+			overflow-x: hidden;
+			scrollbar-width: none;
+			-ms-overflow-style: none;
+			&::-webkit-scrollbar {
+				width: 0;
+				height: 0;
+			}
 		}
 	}
 }
