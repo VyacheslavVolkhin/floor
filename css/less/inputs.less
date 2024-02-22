@@ -98,6 +98,20 @@ select.form-input:required:invalid {
 		box-shadow: none;
 		color: #fff;
 	}
+	&.button-action {
+		border: none;
+		background: rgba(30, 38, 47, 0.36);
+		box-shadow: none;
+		&:hover {
+			background: rgba(30, 38, 47, 0.76);
+		}
+		&:active {
+			background: rgba(30, 38, 47, 0.76);
+		}
+		&.active {
+			background-color: var(--clr-att);
+		}
+	}
 	&.button-disabled, &[disabled] {
 		background-color: var(--clr-base-100);
 		border-color: var(--clr-base-100);
@@ -164,6 +178,19 @@ select.form-input:required:invalid {
 		&:hover {
 			background-color: var(--clr-base);
 			border-color: var(--clr-base);
+		}
+		&:active {
+			background-color: var(--clr-base-700);
+			border-color: var(--clr-base-700);
+		}
+	}
+	&.button-third {
+		background-color: var(--clr-base);
+		border-color: var(--clr-base);
+		box-shadow: none;
+		&:hover {
+			background-color: var(--clr-base-700);
+			border-color: var(--clr-base-700);
 		}
 		&:active {
 			background-color: var(--clr-base-700);
@@ -256,6 +283,15 @@ select.form-input:required:invalid {
 			height: 28px;
 			padding: 0 8px;
 			font-size: 12px;
+			font-weight: 400;
+			.button-action-del {
+				background-size: 20px auto;
+			}
+		}
+		&.button-tag-medium {
+			height: 32px;
+			padding: 0 8px;
+			font-size: 16px;
 			font-weight: 400;
 			.button-action-del {
 				background-size: 20px auto;

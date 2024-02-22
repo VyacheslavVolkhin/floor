@@ -58,7 +58,6 @@ html {
 	width: 100%;
 }
 .wrap {
-	overflow: hidden;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
@@ -625,6 +624,9 @@ html {
 	}
 }
 @media (max-width: 1023px) {
+	.wrap {
+		overflow: hidden;
+	}
 	.menu-show {
 		overflow: hidden;
 	}

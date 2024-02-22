@@ -1,4 +1,42 @@
-
+//js tabs
+const tabsNav = document.querySelectorAll('.js-tabs-nav')
+const tabsBlocks = document.querySelectorAll('.js-tab-block')
+function tabsActiveStart() {
+	for (iTab = 0; iTab < tabsBlocks.length; iTab++) {
+		if (tabsBlocks[iTab].classList.contains('active')) {
+			tabsBlocks[iTab].classList.remove('active')
+		}
+	}
+	for (i = 0; i < tabsNav.length; i++) {
+		let tabsNavElements = tabsNav[i].querySelectorAll('[data-tab]')
+		for (iElements = 0; iElements < tabsNavElements.length; iElements++) {
+			if (tabsNavElements[iElements].classList.contains('active')) {
+				let tabsNavElementActive = tabsNavElements[iElements].dataset.tab
+				for (j = 0; j < tabsBlocks.length; j++) {
+					if (tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive) > -1) {
+						console.log(tabsBlocks[j].dataset.tab.toString().indexOf(tabsNavElementActive))
+						tabsBlocks[j].classList.add('active')
+					}
+				}
+			}
+		}
+	}
+	
+}
+for (i = 0; i < tabsNav.length; i++) {
+	tabsNav[i].addEventListener('click', function (e) {
+		if (e.target.closest('[data-tab]')) {
+			let tabsNavElements = this.querySelector('[data-tab].active')
+			tabsNavElements ? tabsNavElements.classList.remove('active') : false
+			e.target.closest('[data-tab]').classList.add('active')
+			tabsActiveStart()
+			e.preventDefault()
+			e.stopPropagation()
+			return false
+		}
+	})
+}
+tabsActiveStart()
 
 
 //js popup wrap
@@ -260,9 +298,11 @@ $(document).ready(function(){
 	//filter fixed
 	if (!!$('.list-fixed-box').offset()) {
 		let filterTop = $('.list-fixed-box').offset().top;
+		console.log(filterTop)
 		$(window).scroll(function(){
 			let filterTopFixed = $('.header-main-panel').outerHeight();
 			let filterWindowTop = $(window).scrollTop();
+			let filterMax = $(window).innerHeight() - filterTopFixed - $('.list-fixed-box').outerHeight() - 40;
 			$('.filter-box').css('top', filterTopFixed + $('.list-fixed-box').outerHeight() + 24)
 			if (filterTop < (filterWindowTop + filterTopFixed)){
 				$('.wrap').addClass('filter-fixed');
@@ -270,6 +310,7 @@ $(document).ready(function(){
 			else {
 				$('.wrap').removeClass('filter-fixed');
 			}
+			$('.filter-content-block').css('max-height', filterMax);
 		});
 	}
 	
@@ -317,8 +358,7 @@ $(document).ready(function(){
 			autoplaySpeed: 5000,
 			prevArrow: false,
 			nextArrow: false,
-			fade: true,
-			cssEase: 'linear',
+			
 			prevArrow: '<span class="btn btn-action-ico ico-arrow ico-arrow-prev"></span>',
 			nextArrow: '<span class="btn btn-action-ico ico-arrow ico-arrow-next"></span>',
 			responsive: [
@@ -327,6 +367,8 @@ $(document).ready(function(){
 					settings: {
 						prevArrow: false,
 						nextArrow: false,
+						fade: true,
+						cssEase: 'linear',
 					}
 				},
 			]
